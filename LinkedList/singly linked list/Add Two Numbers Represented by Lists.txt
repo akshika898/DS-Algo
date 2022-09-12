@@ -1,0 +1,21 @@
+static Node addList(Node head1, Node head2) {
+    Node list_node=new Node(0);
+    Node a=head1,b=head2,curr=list_node;
+    int carry=0;
+    while(a!=null||b!=null)
+    {
+      int a_val=(a!=null)?a.data:0;
+      int b_val=(b!=null)?b.data:0;
+    int sum=a_val+b_val+carry;
+    carry=sum/10;
+    curr.next=new Node(sum%10);
+    curr=curr.next;
+    if(a!=null)
+      a=a.next;
+    if(b!=null)
+      b=b.next;
+  }
+  if(carry>0)
+    curr.next=new Node(carry);
+  return list_node.next;
+}

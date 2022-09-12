@@ -1,0 +1,31 @@
+int i=0,j=0,k=0;
+int merged[]=new int[asize+bsize]]
+  while(i<asize && j<bsize)
+  {
+    if(a[i]<b[j])
+      merged[k++]=a[i++];
+    else
+      merged[k++]=b[j++];
+  }
+  if(i>=asize)
+  {
+    while(j<bsize)
+      merged[k++]=b[j++];
+  }
+  if(j>=bsize)
+  {
+    while(i<asize)
+      merged[k++]=a[i++];
+  }
+  return merged;
+}
+-----------------------------------------------------------
+public void merge(int[] a, int m, int[] b, int n) {
+        int j=0;
+        for(int i=m;i<a.length;i++)
+        {
+            a[i]=b[j];
+            j++;
+        }
+        Arrays.sort(a);  
+    }

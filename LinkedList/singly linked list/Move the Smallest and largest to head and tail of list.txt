@@ -1,0 +1,46 @@
+static Node shift(Node head)
+{
+Node temp=head;
+int c=0,max_c=0,min_c=0;
+Node min=head,max=head;
+  while(temp!=null){
+    if(temp.data>max.data)
+    {
+      max=temp;
+      max_c=c; //no of elements before max
+    }
+    else if(temp.data<min.data)
+    {
+      min=temp;
+      min_c=c; //no of elements before min
+    }
+    c++;
+    temp=temp.next;
+  }
+  if(min_c!=0){
+  temp=head;
+  while(min_c -->1){
+    temp=temp.next;
+  }
+  temp.next=min.next;
+  min.next=head;
+  head=min;
+  }
+  temp=head;
+  if(max_c!=0){
+  while(max_c-->1){
+    temp=temp.next;
+  }
+  temp.next=max.next;
+    while(temp.next!=null)
+      temp=temp.next;
+    temp.next=max;
+    max.next=null;
+  }
+  return head;
+}
+
+
+
+
+// handle case whe max_c is less than min_c

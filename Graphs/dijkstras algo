@@ -1,0 +1,27 @@
+static int[] dijkstra(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj, int S)
+    {
+        SortedMap<Integer, Integer> set = new TreeMap<Integer, Integer> ();
+        int distance[] = new int[V]; 
+        for(int i=0; i<V; i++){
+            distance[i] = Integer.MAX_VALUE;
+        }
+        
+        set.put(0, S);
+        distance[S] = 0;
+        
+        while(!set.isEmpty()){
+            int nodeDistance = set.firstKey();
+            int node = set.get(nodeDistance);
+            set.remove(nodeDistance);
+            for(ArrayList<Integer> neighbour: adj.get(node)){
+                if(nodeDistance + neighbour.get(1) < distance[neighbour.get(0)]){
+                    if (set.get(distance[neighbour.get(0)]) == neighbour.get(0)) {
+                        set.remove(distance[neighbour.get(0)]);
+                    }
+                    distance[neighbour.get(0)] = nodeDistance + neighbour.get(1);
+                    set.put(distance[neighbour.get(0)], neighbour.get(0));
+                }
+            }
+        }
+        return distance;
+    }

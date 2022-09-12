@@ -1,0 +1,49 @@
+
+Given a binary tree, return the tilt of the whole tree. The tilt of a tree node is defined as the absolute difference between the sum of all left subtree node values and the sum of all right subtree node values. Null nodes are assigned a tilt to be zero. Therefore, the tilt of the whole tree is defined as the sum of all nodes’ tilt.
+Note : No Global/Static variables allowed / No Pass by reference.  
+
+Input: 
+    4
+   / \
+  2   9
+ / \   \
+3   5   7
+
+Output: 15
+Explanation: 
+Tilt of node 3 : 0
+Tilt of node 5 : 0
+Tilt of node 7 : 0
+Tilt of node 2 : |3-5| = 2
+Tilt of node 9 : |0-7| = 7
+Tilt of node 4 : |(3+5+2)-(9+7)| = 6
+Tilt of binary tree : 0 + 0 + 0 + 2 + 7 + 6 = 15
+
+
+
+ 
+Approach: Recursively traverse tree and while traversing, we keep track of two things, sum of subtree rooted under current node, overall tilt till current node. Sum is needed to compute the tilt of the parent. 
+
+Solution: https://www.geeksforgeeks.org/tilt-binary-tree/
+
+int traverse(Node root)
+{
+    if (!root)
+        return 0, 0;
+ 
+    // Compute tilts of left and right subtrees
+    // and find sums of left and right subtrees
+    int left, leftTilt = traverse(root->left);
+    int right, rightTilt = traverse(root->right);
+ 
+    // Add current tilt to overall
+    int currentTilt = abs(left - right);
+    int overAllTilt = (leftTilt + rightTilt + currentTilt);
+ 
+    // Returns sum of nodes under current tree
+    return left + right + root->val, overAllTilt;
+}
+
+
+
+

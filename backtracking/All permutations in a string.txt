@@ -1,0 +1,33 @@
+class Solve
+{
+  	void permute(String str, int index, ArrayList<String> perm) 
+	{ 
+	if(index==str.length) {
+            perm.add(str);
+            return;
+        }
+
+        for(int i=index;i<=str.length;i++)
+        {
+          str = swap(str, index, i);
+          permute(str, index+1, perm);
+          // to backtrack
+          str = swap(str, index, i);
+        }
+
+	} 
+  
+  String swap(String str,int l,int i)
+  {
+    char temp; 
+        char[] charArray = str.toCharArray(); 
+        temp = charArray[l] ; 
+        charArray[l] = charArray[i]; 
+        charArray[i] = temp; 
+        return String.valueOf(charArray); 
+    
+  }
+}
+
+
+// see love baabbar video

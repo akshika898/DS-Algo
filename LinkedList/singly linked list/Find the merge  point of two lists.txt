@@ -1,0 +1,81 @@
+//o(m+n)
+
+static Node MergePoint(Node headA, Node headB) {
+HashSet<Node> nodes = new HashSet<>();
+        Node pa = headA;
+        while (pa != null) {
+            nodes.add(pa);
+            pa = pa.next;
+        }
+        if (nodes.isEmpty()) 
+            return null;
+        
+        Node pb = headB;
+        while (pb != null) {
+            if (nodes.contains(pb)) {
+                return pb;
+            }
+            pb = pb.next;
+        }
+        return null;
+  }
+
+//o(mn)
+
+static Node findMergePoint(Node head1,Node head2) 
+{
+  if(!head1 || !head2)
+    return NULL;
+  Node start1=head1;
+  Node start2=head2;
+  
+  while(start1)
+  {
+    start2=head2;
+    while(start2)
+    {
+      if(start1==start2){
+        return start1;
+      }
+      start2=start2->next;
+    }
+    start1=start1->next;
+  }
+  
+  return null;
+}
+
+
+
+
+optimised 
+
+public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if(headA==null || headB==null) return null;
+        ListNode currA=headA,currB=headB;
+        int lenA=0,lenB=0;
+       while (currA!=null){
+           lenA++;
+           currA=currA.next;
+       }
+       while(currB!=null){
+           lenB++;
+           currB=currB.next;
+       }
+       currA=headA;
+       currB=headB;
+       if(lenA>lenB){
+           for(int i=0;i<lenA-lenB;i++)
+               currA=currA.next;
+       }
+       else{
+           for(int i=0;i<lenB-lenA;i++)
+               currB=currB.next;
+       }
+       while (currA!=currB){
+           currA=currA.next;
+           currB=currB.next;
+       }
+        return currA;
+    }
+

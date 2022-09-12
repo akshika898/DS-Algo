@@ -1,0 +1,49 @@
+static int findRightSibling(Node root, int key)
+  {
+    Queue<Node> q= new LinkedList<Node>();
+    if(root==null)
+      return -1;
+    q.add(root);
+    int s=q.size();
+    while(!q.isEmpty())
+    {
+      Node temp=q.remove();
+      if(temp.data==key)
+      {
+        if(s==1)
+          return -1;
+        else
+          return q.remove().data;
+      }
+      if(temp.left!=null)
+        q.add(temp.left);
+      if(temp.right!=null)
+        q.add(temp.right);
+      s--;
+      if(s==0)
+        s=q.size();
+    }
+    return -1;
+  }
+
+
+
+or static Node nextRightNode(Node root, int k, int level, int[] value)
+{
+    if (root == null)
+        return null;
+ 
+    if (root.key == k) {
+        value[0] = level;
+        return null;
+    }
+    else if (value[0] != 0) {
+        if (level == value[0])
+            return root;
+    }
+ 
+    Node leftNode = nextRightNode(root.left, k, level + 1, value);
+    if (leftNode != null)
+        return leftNode;
+   return nextRightNode(root.right, k, level + 1, value);
+}

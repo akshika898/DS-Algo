@@ -1,0 +1,30 @@
+prec=null;
+public Node inorderPredecessor(Node root,Node k)
+{
+     if (root == null)
+         return prec;
+
+   if (root.data == key) 
+   {
+         if (root.left != null) 
+             return findMax(root.left);
+    }
+
+  else if (key < root.data)
+       return findPredecessor(root.left, prec, key);
+
+  else {
+      prec = root;
+      return findPredecessor(root.right, prec, key);
+ }
+
+     return prec;
+}
+
+static Node findMax(Node root) 
+{
+    while (root.right != null) 
+       root = root.right;
+}
+return root;
+}

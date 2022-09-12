@@ -1,0 +1,31 @@
+class LinkStack
+{
+  private LinkList top; 
+  public LinkStack()   {
+    top=null;
+  }
+
+  public boolean isEmpty()
+  {
+    return top==null;
+  }
+
+  public void push(int dd)
+  {
+    LinkList l=new LinkList(dd);
+    l.next=top;
+    top=l;
+  }
+
+  public int pop()
+  {
+    if(isEmpty())
+      return -1;
+    else
+    {
+      LinkList temp=top;
+      top=top.next;
+      return temp.data;
+    }
+  }
+}

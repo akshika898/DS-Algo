@@ -1,0 +1,34 @@
+static int checkPalindrome(Node head) {
+    if(head==null)
+      return 0;
+    if(head.next==null)
+      return 1;
+    Node slow=head,fast=head;
+    while(fast!=null && fast.next!=null)
+    {
+      fast=fast.next.next;
+       slow=slow.next;
+    }
+    slow=reverse(slow);
+    while(slow!=null)
+    {
+       if(head.data!=slow.data)
+        	return 0;
+       slow=slow.next;
+       head=head.next;       
+    }
+        return 1;
+
+  }
+  static Node reverse(Node slow)
+  {
+    Node prev=null,curr=slow,next=slow;
+    while(curr!=null)
+    {
+      next=curr.next;
+      curr.next=prev;
+      prev=curr;
+      curr=next;
+    }
+    return prev;
+  }

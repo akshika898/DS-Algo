@@ -1,0 +1,48 @@
+Topological Sorting - linear ordering of vertices such that for evry edge u -> v , u will always appear before v in ordering.
+Only valid for directed acyclic graph
+
+using dfs
+
+
+static int[] topoSort(int V, ArrayList<ArrayList<Integer>> adj) 
+    {
+        Map<Integer, Boolean> visited = new HashMap<>();
+        int[] ans = new int[V];
+        Stack<Integer> s=new Stack<Integer>();
+
+        for (int i=0; i<V; i++) {
+            if (!visited.containsKey(i) || !visited.get(i)) {
+                topSortUtil(adj, visited, s, i);
+            }
+        }
+
+        while(!s.isEmpty()){
+            System.out.println(s.pop());
+        }
+    }
+    
+    static void topSortUtil(
+        ArrayList<ArrayList<Integer>> adj,
+        Map<Integer, Boolean> visited,
+        Stack<Integer> s,
+        int node
+    ){
+        visited.put(node, true);
+        for(int i: adj.get(node)) {
+            if(!visited.containsKey(i) || !visited.get(i)){
+                topSortUtil(adj, visited, s, i);
+            }
+        }
+        
+        s.push(node);
+    }
+    
+    
+    
+    
+ using bfs - Kahn's algorithm
+ 1) find indegree of all nodes
+ 2) insert all 0 indegree nodes to a queue
+ 3) permorm normal bfs
+ 
+ 

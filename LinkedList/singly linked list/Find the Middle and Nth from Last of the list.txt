@@ -1,0 +1,55 @@
+static int findMiddle(Node head) 
+{
+  if(head==null)
+    return -1;
+Node slow=head,fast=head;
+  while(fast!=null &&fast.next!=null){
+    fast=fast.next.next;
+    slow=slow.next;
+  }
+  return slow.data;
+}
+
+ int getNthFromLast(Node head, int n)
+    {
+        int c=1;
+        Node temp=head;
+    	while(temp.next!=null)
+    	{
+    	    temp=temp.next;
+    	    c++;
+    	}
+    	if(n>c)
+    	return -1;
+    	int x=c-n;
+    	while(x-->0)
+    	head=head.next;
+    	return head.data;
+    }
+
+
+
+
+remove nth last from ll
+
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode p1=head, p2=head, prev=head;
+        for (int i = 0; i < n; i++) {
+            if (p1 == null) {
+                return null;
+            }
+            p1 = p1.next;
+        }
+        while (p1 != null) {
+            p1 = p1.next;
+            prev=p2;
+            p2 = p2.next;
+        }
+        if(p2==head)
+            return head.next;
+    
+        prev.next = p2.next;
+        return head;
+           
+    }
+

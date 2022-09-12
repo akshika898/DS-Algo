@@ -1,0 +1,29 @@
+BFS, stands for Breadth First Search.
+DFS, stands for Depth First Search.
+
+
+BFS uses Queue to find the shortest path.
+DFS uses Stack to find the shortest path.
+
+
+BFS is better when target is closer to Source.
+DFS is better when target is far from source.
+
+
+BFS is slower than DFS.
+DFS is faster than BFS.
+
+
+Time Complexity of BFS = O(V+E) where V is vertices and E is edges.
+Time Complexity of DFS is also O(V+E) where V is vertices and E is edges.
+
+
+
+
+Adjacency matrix vs list
+
+Matrix - Makes use of VxV matrix, so space required in worst case is O(|V|2).
+List - For every vertex we store its neighbours. Thus, overall space complexity is O(|V|+|E|).
+
+Matrix - quering is easy, insertion/deletion is difficult
+list - query is difficult, inertion, deletion is easy.

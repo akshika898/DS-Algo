@@ -1,0 +1,14 @@
+every key of the original BST is changed to 
+the original key + sum of all keys greater 
+than the original key in BST.
+
+private int sum = 0;
+public TreeNode convert(TreeNode root) {
+        if (root != null) {
+            convert(root.right);
+            sum += root.val;
+            root.val = sum;
+            convert(root.left);
+        }
+        return root;
+    }

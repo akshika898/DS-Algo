@@ -1,0 +1,69 @@
+The cost of the spanning tree is the sum of the weights of all the edges in the tree. There can be many spanning trees. Minimum spanning tree is the spanning tree where the cost is minimum among all the spanning trees. There also can be many minimum spanning trees.
+
+3 data structure 
+
+key - to trach weight - infinity initially
+mst - to track which is included - all false initially
+parent - all -1 initially
+
+
+Approach - 1) Take minimum value from key array if not visited
+2) mark min key in mst to True
+3) find all adjacent of key and update key value by weight for neighbours if less than current and update parent of nodes
+
+
+
+//incorrect code
+
+int minKey(int key[], Boolean mstSet[])
+    {
+        // Initialize min value
+        int min = Integer.MAX_VALUE, min_index = -1;
+ 
+        for (int v = 0; v < V; v++)
+            if (mstSet[v] == false && key[v] < min) {
+                min = key[v];
+                min_index = v;
+            }
+ 
+        return min_index;
+    }
+    
+        static int spanningTree(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj) 
+    {
+        int[] key = new int[V];
+        int[] mst = new int[V];
+        int[] parent = new int[V];
+        
+        for(int i=0; i<V; i++) {
+            key[i] = Integer.MAX_VALUE;
+            mst[i] = 0;
+            parent[i] = -1;
+        }
+        
+        key[0] = 0;
+        mst[0] = 1;
+        
+        
+        for(int j=0; j<V; j++) {
+            int u = minKey(key, mst, V);
+            mst[u] = 1;
+            for(ArrayList<Integer> neighbour: adj.get(u)){
+                int node = neighbour.get(0);
+                int distance = neighbour.get(1);
+                parent[node] = u;
+                if(mst[node] == 0 && key[node]>distance){
+                    key[node] = distance;
+                }
+            }
+        }
+        for(int i=0;i<V;i++) {
+            System.out.println(i);
+            System.out.println("ivalue");
+            System.out.println(parent[i]);
+            System.out.println("parent");
+            System.out.println(key[i]);
+        }
+        return 0;
+
+    }

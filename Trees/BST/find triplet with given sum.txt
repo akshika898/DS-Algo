@@ -1,0 +1,27 @@
+static boolean Triplet(Node root, int sum) 
+{ 
+    Vector<Integer> vec = new Vector<>(); 
+    inorder(root, vec); 
+    int strt, end; 
+
+    for (int i = 0; i < vec.size() - 2; i++) 
+    { 
+        strt = i + 1; 
+        end = vec.size() - 1; 
+        while (strt < end)  
+        { 
+            if (vec.get(i) + vec.get(strt) + vec.get(end) == sum)  
+                return true; 
+            else if (vec.get(i) + vec.get(strt) + vec.get(end) < sum) 
+                strt++; 
+            else vec[i] + vec[strt] + vec[end] > sum 
+                end--; 
+        } 
+    } 
+    return false; 
+} 
+
+
+time n2
+space n
+  

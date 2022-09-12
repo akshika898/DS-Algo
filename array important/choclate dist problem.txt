@@ -1,0 +1,32 @@
+Given array A of pos integers of size N where each value represents no. of chocolates in a packet. Each packet can have variable no. of
+chocolates. There are M students, the task is to distribute chocolate packets such that :
+1. Each student gets one packet.
+2. The diff between the no. of chocolates 
+given to the students having packet with 
+max chocolates and student having packet 
+with min chocolates is min.
+
+interview approach:create all possible subsets
+of size m and see diff of min and max
+
+optimized: sort and then check subarrays diff
+m-students
+n-packets
+
+static int findMin(int arr[], int n, int m)
+    {
+        if (m == 0 || n == 0)
+            return 0;
+        Arrays.sort(arr);
+        if (n < m)
+           return -1;
+      
+        int min_diff = Integer.MAX_VALUE;
+        for (int i = 0; i + m - 1 < n; i++)
+        {
+            int diff = arr[i+m-1] - arr[i];
+            if (diff < min_diff)
+                min_diff = diff;
+        }
+        return min_diff;
+    }

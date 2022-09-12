@@ -1,0 +1,27 @@
+static int minReversal(String expr)
+  {
+  Stack<Character> s=new Stack<>();
+  if(expr.length()%2!=0)
+      return -1;
+  for(int i=0;i<expr.length();i++)
+     {
+       char c=expr.charAt(i);
+       if(c==']'&&!s.empty())
+       {
+         if(s.peek()=='[')
+           s.pop();
+         else
+          s.push(c);
+       }
+       else
+        s.push(c);
+     }
+     int len=s.size();
+     int n=0;
+     while(!s.empty()&&s.peek()=='[')
+     {
+       n++;
+       s.pop();
+     }
+     return (len/2+n%2);
+  }

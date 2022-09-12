@@ -1,0 +1,19 @@
+      nextgreater(a,n);
+  static void nextgreater(int a[],int n){
+    int res[]=new int[n];
+    for(int i=0;i<n;i++)
+      res[i]=-1;
+    Stack<Integer> s=new Stack<Integer>();
+    for(int i=0;i<n;i++){
+      while (!s.isEmpty() && s.peek() < arr[i])  
+           s.pop();
+      if (s.empty())  
+          arr1[i] = -1;          
+      else
+          arr1[i] =i- s.peek();          
+      s.push(arr[i]); 
+    }
+    for(int i=0;i<n;i++)
+      System.out.print(res[i]+" ");
+  }
+}

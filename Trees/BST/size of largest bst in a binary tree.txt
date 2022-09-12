@@ -1,0 +1,68 @@
+0(n2)-worst time if it is left skewed tree
+
+  static int largestBst(Node root)
+        {
+            if(root==null)
+                return 0;
+            if(bst(root,Integer.MIN_VALUE,Integer.MAX_VALUE))
+                 return size(root);
+            return Math.max(largestBst(root.left),largestBst(root.right));
+        }
+        static int size(Node root)
+        {
+            if(root==null)
+            return 0;
+            return 1+size(root.left)+size(root.right);
+        }
+        static boolean bst(Node root,int min,int max)
+        {
+            if(root==null)
+                return true;
+            if(root.data<min ||root.data>max)
+                return false;
+            return bst(root.left,min,root.data-1) && bst(root.right,root.data+1,max);
+        }
+}
+
+-------------------------------------------------------------
+
+	static int MAX = Integer.MAX_VALUE;
+	static int MIN = Integer.MIN_VALUE;
+
+	static class Info {
+		int size; // Size of subtree
+		int max; // Min value in right subtree
+		int min; // Max value in left subtree
+		boolean isBST; // If subtree is BST
+
+		Info() {}
+
+		Info(int size, int max, int min, boolean isBST)
+		{
+			this.size = size;
+			this.max = max;
+			this.min = min;
+			this.isBST = isBST;
+		}
+	}
+
+	static Info largestBST(Node root)
+	{
+		if (root == null) {
+			return new Info(0, Integer.MIN_VALUE, Integer.MAX_VALUE, true);
+		}
+		// We will here do the postorder traversal as we want our left and right subtrees to be computed first.
+
+		Info left = largestBST(root.left, ans);
+		Info right = largestBST(root.right, ans);
+
+		Info current;
+                current.size = left.size + right.siz +1;
+		current.min = Math.min(left.min, root.data);
+		current.max = Math.max(right.max, root.data);
+		current.isBST = left.isBST && right.isBST && root.data > left.max && root.data < right.min;
+
+		if (current.isBST) {
+                    ans = Math.max(ans, current.size)
+                }
+

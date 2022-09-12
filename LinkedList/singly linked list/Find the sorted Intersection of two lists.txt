@@ -1,0 +1,24 @@
+static Node Intersection(Node head1, Node head2)
+    {
+        Node dummy=new Node(0);
+        Node temp=dummy;
+        Node ptr1=head1,ptr2=head2;
+        HashSet<Integer> hs=new HashSet<>();
+        while(ptr1!=null)
+        {
+            hs.add(ptr1.data);
+            ptr1=ptr1.next;
+        }
+        while(ptr2!=null)
+        {
+            if(hs.contains(ptr2.data))
+            {
+                hs.remove(ptr2.data);
+               temp.next=ptr2;
+               temp=temp.next;
+            }
+            ptr2=ptr2.next;
+        }
+        temp.next=null;
+        return dummy.next;
+    }

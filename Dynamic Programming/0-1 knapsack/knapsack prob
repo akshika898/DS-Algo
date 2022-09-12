@@ -1,0 +1,68 @@
+knapsack problem - thief to rob max value products for given weight - see love babbar video
+
+Brute force - 2^n same problems are being again and again
+
+class Knapsack {
+    static int knapSack(int capacity, int wt[], int val[], int n) 
+    {
+        if(n==0 || capacity==0){
+            return 0;
+        }
+        
+        int include = 0;
+        if(wt[n-1] <= capacity){
+            include = val[n-1] + knapSack(capacity-wt[n-1], wt, val, n-1);
+        }
+        
+        int exclude = 0 + knapSack(capacity, wt, val, n-1);
+        return Math.max(include, exclude);
+    } 
+
+   public static void main(String args[]) {
+	int val[] = new int[] { 60, 100, 120 };
+	int wt[] = new int[] { 10, 20, 30 };
+	int W = 50;
+	int n = val.length;
+	System.out.println(knapSack(W, wt, val, n));
+   }
+}
+
+
+
+Using dynamic programing
+
+
+class Solution 
+{ 
+    //Function to return max value that can be put in knapsack of capacity W.
+    static int knapSack(int capacity, int wt[], int val[], int n) 
+    {
+        int dp[][] = new int[n+1][capacity+1];
+        for(int i = 0; i < n + 1; i++)  
+            for(int j = 0; j < capacity + 1; j++)  
+                dp[i][j] = -1;
+        return knapSackDp(capacity, wt, val, n, dp);
+    } 
+    
+    static int knapSackDp(int capacity, int wt[], int val[], int n, int dp[][]) 
+    {
+        if(n==0 || capacity==0){
+            return 0;
+        }
+        
+        int include = 0;
+        if (dp[n-1][capacity] != -1) {
+            return dp[n-1][capacity];
+        }
+        
+        if(wt[n-1] <= capacity){
+            include = val[n-1] + knapSackDp(capacity-wt[n-1], wt, val, n-1, dp);
+        }
+        
+        int exclude = 0 + knapSackDp(capacity, wt, val, n-1, dp);
+        dp[n-1][capacity] = Math.max(include, exclude);
+        return dp[n-1][capacity];
+    } 
+}
+
+

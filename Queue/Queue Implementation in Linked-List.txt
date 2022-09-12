@@ -1,0 +1,33 @@
+class QueueNode
+{
+  int data;
+  QueueNode next;
+  public QueueNode(int data) 
+  {
+    this.data = data;
+  }
+}
+class QueueLinkedList
+{
+  public QueueNode front, rear;
+  public void EnQueue(int data)
+  {
+    QueueNode node=new QueueNode(data);
+if(front==null)
+  front=rear=node;
+    else{
+      rear.next=node;
+      rear=rear.next;
+    }
+  }    
+  public int DeQueue()
+  {
+if(front==null)
+  return -1;
+    else{
+      int temp=front.data;
+      front=front.next;
+      return temp;
+    }
+  }    
+}

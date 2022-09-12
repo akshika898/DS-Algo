@@ -1,0 +1,34 @@
+Node compute(Node head)   
+    {
+        Node rev=reverse(head);
+        Node curr=rev,max=curr.data;
+        while( curr.next!=null)
+        {
+            if(curr.next.data>max)
+            {
+               max=curr.next.data;
+                curr=curr.next;
+            }
+            else
+                curr.next=curr.next.next;
+        }
+        head=reverse(rev);
+        return head;
+    }
+
+Node reverse(Node head)
+    {
+        Node curr= head,prev = null,next;
+        while (current != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = current;
+            current = next;
+        }
+        return prev;
+    }
+
+
+
+will become list in desc order
+

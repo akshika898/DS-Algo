@@ -1,0 +1,18 @@
+public static Node setNextNode(Node curr, Node prev)
+    {
+        if (curr == null) 
+            return prev;
+ 
+        prev = setNextNode(curr.left, prev);
+
+        if (prev != null) {
+            prev.next = curr;
+        }
+         prev = curr;
+
+        return setNextNode(curr.right, prev);
+    }
+
+
+
+same solution for in bst point next ptr to next big value as inorder will result in sorted list
