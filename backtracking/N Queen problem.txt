@@ -52,7 +52,7 @@ NOTE : no need to check up and down column because once a queen is placed we pro
      }
 
      /* If the queen can not be placed in any row in this col, then return false */
-	return false;
+     return false;
     }
 
 	boolean solveNQ()

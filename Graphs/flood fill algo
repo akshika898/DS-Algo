@@ -5,9 +5,8 @@ public class Main
 {
 	static boolean isValid(int[][] screen, int m, int n, int x, int y, int prevC, int newC)
 	{
-		if(x < 0 || x >= m || y < 0 || y >= n || screen[x][y] != prevC
-		|| screen[x][y]== newC)
-			return false;
+		if(x < 0 || x >= m || y < 0 || y >= n || screen[x][y] != prevC || screen[x][y] == newC)
+		     return false;
 		return true;
 	}
 

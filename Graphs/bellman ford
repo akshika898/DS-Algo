@@ -5,7 +5,7 @@ djikstra algo do not givve right output for negative weights.
 
 logic n-1 times apply 
 if (dist[u] + wt < dist[v]){
-    ist[v] = dist[u] + wt;
+    dist[v] = dist[u] + wt;
   }
   
  apply this one more time to find negative cycle.

@@ -1,0 +1,20 @@
+A Derangement is a permutation of n elements, such that no element appears in its original position. For example, a derangement of {0, 1, 2, 3} is {2, 3, 1, 0}.
+Given a number n, find the total number of Derangements of a set of n elements.
+
+
+
+Recursion
+
+public int count(int n){
+	if(n==1) return 0;
+	if (n==2) return 1;
+	int ans = (n-1) * (count(n-1) + count(n-2));
+	return ans;
+}
+
+AFter placing 1 elemnt we have n-1 places
+so n-1* (solution of subproblem)
+for sub problem we had two options
+if we place element at i to elemnt at j
+1) Swap   n-2
+2) j does not want to go on i place   n-1

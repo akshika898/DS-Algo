@@ -21,12 +21,7 @@ static int[] topoSort(int V, ArrayList<ArrayList<Integer>> adj)
         }
     }
     
-    static void topSortUtil(
-        ArrayList<ArrayList<Integer>> adj,
-        Map<Integer, Boolean> visited,
-        Stack<Integer> s,
-        int node
-    ){
+    static void topSortUtil(ArrayList<ArrayList<Integer>> adj, Map<Integer, Boolean> visited, Stack<Integer> s, int node){
         visited.put(node, true);
         for(int i: adj.get(node)) {
             if(!visited.containsKey(i) || !visited.get(i)){
@@ -44,5 +39,6 @@ static int[] topoSort(int V, ArrayList<ArrayList<Integer>> adj)
  1) find indegree of all nodes
  2) insert all 0 indegree nodes to a queue
  3) permorm normal bfs
+ 4) for neighbours decrease degree by 1
  
  
