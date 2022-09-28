@@ -10,12 +10,7 @@ class Solution {
         return ans;
     }
     
-    public void bfs(
-        ArrayList<ArrayList<Integer>> adj,
-        Map<Integer, Boolean> visited,
-        ArrayList<Integer> ans,
-        int node
-    ){
+    public void bfs(ArrayList<ArrayList<Integer>> adj, Map<Integer, Boolean> visited, ArrayList<Integer> ans, int node){
         Queue<Integer> q = new LinkedList<Integer>();
         q.add(node);
         visited.put(node, true);
