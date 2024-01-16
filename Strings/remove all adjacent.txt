@@ -33,7 +33,7 @@ for(int j=0;j<s.length();j++)
     else
      {
         arr[i]=current;
-        i+=1;
+        i++;
       }
     }
 return new String(ar,0,i);

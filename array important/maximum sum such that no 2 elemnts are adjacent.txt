@@ -1,18 +1,60 @@
+2^n recursive sol
+static int rec(int nums[], int idx,int N)
+  {
+      if (idx >= N)
+          return 0;
+      int incl = nums[idx] + rec(nums, idx + 2, N);
+      int excl = rec(nums, idx + 1, N);
+      return Math.max(incl, excl);
+  }
+  
+  
+  
+dp  -> recursion + memoisation
+Time complexity: O(N) (recursion)
+Space complexity: O(N)+O(N), one is recursive stack space and another O(N) is for dp array.
+
+public static int rec(List<Integer> nums, int idx, int[] dp) {
+        // base case: if the current index is out of bounds, return 0
+        if (idx >= nums.size()) {
+            return 0;
+        }
+         
+        // if the result for the current index has already been computed, return it
+        if (dp[idx] != -1) {
+            return dp[idx];
+        }
+         
+         int incl = nums[idx] + rec(nums, idx + 2, N);
+         int excl = rec(nums, idx + 1, N);
+
+        dp[idx] = Math.max(incl, excl);
+         
+        return dp[idx];
+    }
+
+
+
+10  3 1 20
+
+
+
+O(N)
 int FindMaxSum(int arr[], int n) 
     { 
-        int incl = arr[0]; 
-        int excl = 0; 
+        int incl = arr[0]; // max sum including previous element
+        int excl = 0;  // max sum excluding prev el
         int excl_new; 
-        int i; 
+        int i;
   
-        for (i = 1; i < n; i++) 
+        for (i = 1; i < n; i++)
         { 
             /* current max excluding i */
-            excl_new = (incl > excl) ? incl : excl; 
+            excl_new = Math.max(incl, excl); 
   
             /* current max including i */
             incl = excl + arr[i]; 
             excl = excl_new; 
         } 
-        return ((incl > excl) ? incl : excl); 
+        return Math.max(incl, excl); 
     } 

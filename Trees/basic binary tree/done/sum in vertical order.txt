@@ -21,18 +21,13 @@ void VerticalTraversalUtil(TreeNode root, int hd, TreeMap<Integer, ArrayList<Int
         if (root == null) 
               return; 
 
-        if(hm.get(hd)==null)
-        {
+        if(hm.get(hd)==null) {
             ArrayList<Integer> a=new ArrayList<>();
-            a.add(root.val);
-            hm.put(hd,a);
-        }
-         else
-         {
+        } else {
              ArrayList<Integer> a=hm.get(hd);
-            a.add(root.val);
-            hm.put(hd,a); 
          }
+         a.add(root.val);
+         hm.put(hd,a); 
         VerticalTraversalUtil(root.left, hd - 1, hm);
         VerticalTraversalUtil(root.right, hd + 1, hm); 
     } 

@@ -7,6 +7,7 @@ static void printCousins(Node root, int k) {
      }
     print(root,k,level);
  }
+ 
   static int flag=0;
   static void print(Node root,int k,int level)
   {
@@ -28,6 +29,9 @@ static void printCousins(Node root, int k) {
       print(root.right,k,level-1);
     }
   }
+  
+  
+  
   static int getLevel(Node root,int k,int level)
   {
     if(root==null)

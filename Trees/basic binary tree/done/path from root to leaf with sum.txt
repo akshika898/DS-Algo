@@ -1,0 +1,11 @@
+
+ boolean hasPathSum(Node node, int sum) {
+    if (node == null)
+        return false;
+    
+    sum -= node.data;
+    if (node.left == null && node.right == null)
+        return sum == 0;
+    
+    return hasPathSum(node.left, sum) || hasPathSum(node.right, sum);
+}

@@ -1,0 +1,38 @@
+public static int longestUniqueSubsttr(String str) {
+        // if string length is 0
+        if (str.length() == 0)
+            return 0;
+
+        // if string length 1
+        if (str.length() == 1)
+            return 1;
+
+        // if string length is more than 2
+        int maxLength = 0;
+        HashSet<Character> set = new HashSet<>();
+
+        // left and right pointer of sliding window
+        int left = 0, right = 0;
+        while (right < str.length()) {
+
+            // if character is visited
+            if (set.contains(str.charAt(right))) {
+
+                // The left pointer moves to the right while
+                // removing characters from the set until
+                // the repeating character is no longer part
+                // of the current window.
+                set.remove(str.charAt(left));
+                left++;
+            }
+
+            set.add(str.charAt(right));
+
+            // The length of the current window (right -
+            // left + 1) is calculated, and the answer is updated
+            // accordingly.
+            maxLength = Math.max(maxLength, (right - left + 1));
+            right++;
+        }
+        return maxLength;
+    }

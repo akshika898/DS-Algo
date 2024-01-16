@@ -12,14 +12,16 @@ int getLevelDiff(Node root)
         while(s>0)
         {
             Node temp=q.remove();
+            
             if(level%2==0)
-            even+=temp.data;
+            	even+=temp.data;
             else
-            odd+=temp.data;
+            	odd+=temp.data;
+            
             if(temp.left!=null)
-            q.add(temp.left);
+            	q.add(temp.left);
             if(temp.right!=null)
-            q.add(temp.right);
+            	q.add(temp.right);
             s--;  
          }
     }

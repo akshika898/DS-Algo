@@ -1,3 +1,6 @@
+Let the array be arr[]={15, 18, 2, 3, 6, 12}
+if mid-1 < mid then breaking point
+
 static int countRotations(int arr[], int low, int high) 
     {  
         if (high < low) 

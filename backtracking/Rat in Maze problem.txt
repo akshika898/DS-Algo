@@ -16,7 +16,7 @@ public class RatMaze {
 	return (x >= 0 && x < N && y >= 0 && y < N && maze[x][y] == 1);
     }
 
-	boolean solveMazeUtil(int maze[][], int x, int y, int sol[][])
+	boolean solveMaze(int maze[][], int x, int y, int sol[][])
 	{
 		// if (x, y is goal) return true
 		if (x == N - 1 && y == N - 1 && maze[x][y] == 1) {
@@ -34,11 +34,11 @@ public class RatMaze {
 			sol[x][y] = 1;
 
 			/* Move forward in x direction */
-			if (solveMazeUtil(maze, x + 1, y, sol))
+			if (solveMaze(maze, x + 1, y, sol))
 				return true;
 
 			/* If moving in x direction doesn't give solution then Move down in y direction */
-			if (solveMazeUtil(maze, x, y + 1, sol))
+			if (solveMaze(maze, x, y + 1, sol))
 				return true;
 
 			/* If none of the above movements works then BACKTRACK: unmark x, y as part of solution path */
@@ -48,18 +48,7 @@ public class RatMaze {
 
 		return false;
 	}
-	
-	boolean solveMaze(int maze[][])
-	{
-		int sol[][] = new int[N][N];
 
-		if (solveMazeUtil(maze, 0, 0, sol) == false) {
-			return false;
-		}
-
-		printSolution(sol);
-		return true;
-	}
 
 	public static void main(String args[])
 	{
@@ -70,6 +59,13 @@ public class RatMaze {
 				  { 1, 1, 1, 1 } };
 
 		N = maze.length;
-		rat.solveMaze(maze);
+		int sol[][] = new int[N][N];
+
+		if (solveMaze(maze, 0, 0, sol) == false) {
+			return false;
+		}
+
+		printSolution(sol);
+		return true;
 	}
 }

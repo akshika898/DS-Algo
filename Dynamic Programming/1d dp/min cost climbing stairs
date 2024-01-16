@@ -23,3 +23,18 @@ Return the minimum cost to reach the top of the floor.
         dp[N] = Math.min(minCost(cost, N-1, dp), minCost(cost, N-2, dp))+cost[N];
         return dp[N];
     }
+    
+    
+    
+    // to count all possible ways to climb 1/2 stes and reach end
+    static int countWays(int n, int dp[])
+    {
+        if (n <= 1)
+            return dp[n] = 1;
+ 
+        if (dp[n] != -1) {
+            return dp[n];
+        }
+        dp[n] = countWays(n - 1, dp) + countWays(n - 2, dp);
+        return dp[n];
+    }

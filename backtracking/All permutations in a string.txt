@@ -25,7 +25,6 @@ class Solve
         charArray[l] = charArray[i]; 
         charArray[i] = temp; 
         return String.valueOf(charArray); 
-    
   }
 }
 

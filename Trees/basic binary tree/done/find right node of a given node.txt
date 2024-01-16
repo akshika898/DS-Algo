@@ -27,7 +27,6 @@ static int findRightSibling(Node root, int key)
   }
 
 
-
 or static Node nextRightNode(Node root, int k, int level, int[] value)
 {
     if (root == null)
@@ -44,6 +43,6 @@ or static Node nextRightNode(Node root, int k, int level, int[] value)
  
     Node leftNode = nextRightNode(root.left, k, level + 1, value);
     if (leftNode != null)
-        return leftNode;
+       return leftNode;
    return nextRightNode(root.right, k, level + 1, value);
 }
