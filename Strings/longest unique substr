@@ -36,3 +36,4 @@ public static int longestUniqueSubsttr(String str) {
         }
         return maxLength;
     }
+    
