@@ -6,8 +6,8 @@ static Node addList(Node head1, Node head2) {
     {
       int a_val=(a!=null)?a.data:0;
       int b_val=(b!=null)?b.data:0;
-    int sum=a_val+b_val+carry;
-    carry=sum/10;
+      int sum=a_val+b_val+carry;
+      carry=sum/10;
     curr.next=new Node(sum%10);
     curr=curr.next;
     if(a!=null)

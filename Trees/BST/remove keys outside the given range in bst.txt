@@ -8,15 +8,12 @@ static Node Range(Node root, int min, int max)
          
         if(root.key < min) 
         {
-            Node rchild = root.right;
-            root = null;
-            return rchild;
+            return root.right;
         }
        if(root.key > max) 
         {
-            Node lchild = root.left;
-            root = null;
-            return lchild;
+            return root.left;
+   
         }
        return root;
     }

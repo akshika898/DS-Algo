@@ -1,39 +1,64 @@
+Length of the longest substring without repeating characters
+Example 1:
+Input: “ABCDEFGABEF”
+Output: 7
+Explanation: The longest substring without repeating characters are “ABCDEFG”, “BCDEFGA”, and “CDEFGAB” with lengths of 7
+
+Example 2:
+Input: “GEEKSFORGEEKS”
+Output: 7
+Explanation: The longest substrings without repeating characters are “EKSFORG” and “KSFORGE”, with lengths of 7
+
+
 public static int longestUniqueSubsttr(String str) {
-        // if string length is 0
         if (str.length() == 0)
             return 0;
 
-        // if string length 1
         if (str.length() == 1)
             return 1;
 
-        // if string length is more than 2
         int maxLength = 0;
         HashSet<Character> set = new HashSet<>();
 
-        // left and right pointer of sliding window
         int left = 0, right = 0;
         while (right < str.length()) {
-
-            // if character is visited
             if (set.contains(str.charAt(right))) {
-
-                // The left pointer moves to the right while
-                // removing characters from the set until
-                // the repeating character is no longer part
-                // of the current window.
-                set.remove(str.charAt(left));
-                left++;
+                while (set.contains(str.charAt(right))) {
+ 
+                    set.remove(str.charAt(left));
+                    left++;
+                }
             }
 
             set.add(str.charAt(right));
-
-            // The length of the current window (right -
-            // left + 1) is calculated, and the answer is updated
-            // accordingly.
             maxLength = Math.max(maxLength, (right - left + 1));
             right++;
         }
         return maxLength;
     }
     
+    
+    
+    
+    optimised version
+    static int longestUniqueSubsttr(String str) {
+        int n = str.length();
+        int res = 0;
+        HashMap<Character, Integer> lastIndex = new HashMap<>();
+        
+        int i = 0;
+
+
+        for (int j = 0; j < n; j++) {
+            char currentChar = str.charAt(j);
+    
+            if (lastIndex.containsKey(currentChar)) {
+                i = Math.max(i, lastIndex.get(currentChar) + 1);
+            }
+
+            res = Math.max(res, j - i + 1);
+
+            lastIndex.put(currentChar, j);
+        }
+        return res;
+    }

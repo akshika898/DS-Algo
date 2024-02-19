@@ -13,7 +13,7 @@ static Node deleteNode(Node root, int d)
             else if(root.left==null)
 	       return root.right;
 	     root.data = min(root.right);
-	     root.right = deleteNode(root.right,root.data);    
+	     root.right = deleteNode(root.right, root.data);    
 	}
 	return root;
 }

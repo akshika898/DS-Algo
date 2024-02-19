@@ -13,20 +13,14 @@ int detectAndRemoveLoop(Node node)
         return 0;
     }
 
-    void removeLoop(Node loop, Node curr)
-    {
-        Node ptr1 = curr, ptr2 = null;
-        while (true) {
-            ptr2 = loop;
-            while (ptr2.next != loop && ptr2.next != ptr1) {
-                ptr2 = ptr2.next;
-            } 
-            if (ptr2.next == ptr1) 
-                break;
-            
-            ptr1 = ptr1.next;
+   void removeLoop(Node slow, Node head) {
+        Node p2 = head;
+
+        while (p1.next != p2.next) {
+            p1 = p1.next;
+            p2 = p2.next;
         }
-        ptr2.next = null;
+        p1.next = null;
     }
 
 

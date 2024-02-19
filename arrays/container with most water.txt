@@ -21,3 +21,7 @@ public int maxArea(int[] h) {
         }
         return area;
     }
+    
+    
+    
+    https://www.youtube.com/watch?v=UuiTKBwPgAo&ab_channel=NeetCode from 6:22

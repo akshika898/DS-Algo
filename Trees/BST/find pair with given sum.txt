@@ -1,6 +1,4 @@
-static boolean findpairUtil(Node root, int sum, 
-                                HashSet<Integer> set)  
-    { 
+static boolean findpairUtil(Node root, int sum, HashSet<Integer> set)  { 
         if (root == null) 
             return false; 
   

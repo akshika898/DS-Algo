@@ -12,7 +12,6 @@ void splitBST(Node root, int k)
     Node root2 = NULL;
  
     if (splitIndex != -1)
-        root1 = createBST(inOrder, 0, splitIndex);
 
     if (splitIndex != (index - 1))
         root2 = createBST(inOrder, splitIndex + 1,index - 1);

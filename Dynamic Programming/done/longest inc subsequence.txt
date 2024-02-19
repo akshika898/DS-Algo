@@ -1,0 +1,83 @@
+public int lengthOfLIS(int[] a) {
+        if (a.length == 0) 
+            return 0;
+        int[] dp = new int[a.length];
+        dp[0] = 1;
+        int maxans = 1;
+        for(int i=1;i<a.length;i++)
+        {
+           int max=0;
+            for(int j=0;j<i;j++)
+            {
+                if(a[j]<a[i])
+                    max=Math.max(max,dp[j]);
+            }
+            dp[i]=max+1;
+            maxans=Math.max(maxans,dp[i]);
+        }
+        return maxans;
+    }
+    
+    
+    
+    
+    dp  n^2
+    
+    public int lengthOfLIS(int[] nums) {
+        int[][] res = new int[nums.length][nums.length+1];
+        for(int i = 0; i < res.length; i++){
+            for(int j = 0; j < res[i].length; j++){
+                res[i][j] = -1;
+            }
+        }
+        return longest(nums, 0, -1, res);
+    }
+    
+    public int longest(int[] nums, int curr, int prev, int[][] res){
+        if(curr == nums.length){
+            return 0;
+        }
+        
+        if(res[curr][prev+1] != -1){
+            return res[curr][prev+1];
+        }
+
+        int take = 0;
+        if(prev == -1 || nums[curr] > nums[prev]){
+            take = 1 + longest(nums, curr+1, curr, res);
+        }
+        
+        int notTake = longest(nums, curr + 1, prev, res);
+        return res[curr][prev+1] = Math.max(take, notTake);
+    }
+    
+    
+    nlogn approach
+    
+    
+    static int lengthOfLIS(int[] nums) {
+        int n = nums.length;
+        List<Integer> ans = new ArrayList<>();
+ 
+        ans.add(nums[0]);
+ 
+        for (int i = 1; i < n; i++) {
+            if (nums[i] > ans.get(ans.size() - 1)) {
+                ans.add(nums[i]);
+            } else {
+                // The binarySearch method returns the index of the first element that is not less than the current number.
+                int low = Collections.binarySearch(ans, nums[i]);
+ 
+                // We update the element at the found position with the current number.
+                // By doing this, we are maintaining a sorted order in the answer list.
+                if (low < 0) {
+                    low = -(low + 1);
+                }
+                ans.set(low, nums[i]);
+            }
+        }
+ 
+        // The size of the answer list represents the length of the longest increasing subsequence.
+        return ans.size();
+    }
+

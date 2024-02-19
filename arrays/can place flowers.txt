@@ -1,5 +1,4 @@
-Given a flowerbed (represented as an array containing 
-0 and 1, 0 means empty and 1 means not empty),and n,
+Given a flowerbed (represented as an array containing 0 and 1, 0 means empty and 1 means not empty),and n,
 return if n new flowers can be planted without violating
 the no-adjacent-flowers rule.
 

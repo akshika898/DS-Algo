@@ -1,3 +1,10 @@
+Input: N = 4
+arr = {1, 5, 11, 5}
+Output: YES
+Explanation: 
+The two parts are {1, 5, 5} and {11}.
+
+
 class Solution {
     public boolean canPartition(int[] nums) {
         int sum=0,n=nums.length;
@@ -36,3 +43,40 @@ class Solution {
 
     
 }
+
+
+
+
+or
+
+public boolean canPartition(int[] nums) {
+        int sum=0,n=nums.length;
+        for(int i=0;i<n;i++)
+            sum+=nums[i];
+        if(sum%2!=0)
+            return false;
+        else 
+            return  Partition(nums,n-1,sum/2);
+        
+    }
+
+
+public boolean Partition(int index, int[] nums, int target, int[][] dp) {
+        int n = nums.length;
+        if (index >= n) {
+            return false;
+        }
+        if (target < 0) {
+            return false;
+        }
+        if (target == 0) {
+            return true;
+        }
+        if (dp[index][target] != -1) {
+            return dp[index][target];
+        }
+        boolean in = Partition(index + 1, nums, target - nums[index], dp);
+        boolean ex = Partition(index + 1, nums, target, dp);
+        return dp[index][target] = ex || in;
+
+    }

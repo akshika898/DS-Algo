@@ -3,8 +3,8 @@ public static Node kthSmallest(Node root, int k)
         if (root == null) 
             return null; 
         Node left = kthSmallest(root.left, k); 
-       //if node is in left subtree
-           if (left != null) 
+
+        if (left != null) 
             return left;     
         count++; 
         if (count == k) 

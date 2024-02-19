@@ -18,27 +18,26 @@ class Solution {
     public boolean bfsCyclic(
         ArrayList<ArrayList<Integer>> adj,
         Map<Integer, Boolean> visited,
-        int node
+        int node 
     ){
         Queue<Integer> q = new LinkedList<Integer>();
         Map<Integer, Integer> parent = new HashMap<Integer, Integer>();
         q.add(node);
         parent.put(node, -1);
         visited.put(node, true);
-        for(int neighbour: adj.get(node)) {
-		while(!q.isEmpty()){
-		    int first = q.remove();
-		    for(int neighbour: adj.get(first)){
-		        if(!visited.containsKey(neighbour) || !visited.get(neighbour)){
-		            q.add(neighbour);
-		            visited.put(neighbour, true);
-		            parent.put(neighbour, first);
-		        }
-		        else if (visited.get(neighbour) && parent.containsKey(neighbour) && parent.get(first) != neighbour){
-		            return true;
-		        }
-		    }
-		}
+	while(!q.isEmpty()){
+	    int first = q.remove();
+	    for(int neighbour: adj.get(first)){
+	        if(!visited.containsKey(neighbour) || !visited.get(neighbour)){
+	            q.add(neighbour);
+	            visited.put(neighbour, true);
+	            parent.put(neighbour, first);
+	        }
+	        else if (visited.get(neighbour) && parent.containsKey(neighbour) && parent.get(first) != neighbour){
+	            return true;
+	        }
+	    }
+	}
         return false;
     }
     
