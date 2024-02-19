@@ -2,8 +2,7 @@ int isSumProperty(Node node)
     { 
         int left_data = 0, right_data = 0; 
    
-        if (node == null
-                || (node.left == null && node.right == null)) 
+        if (node == null || (node.left == null && node.right == null)) 
             return 1; 
         else
         { 

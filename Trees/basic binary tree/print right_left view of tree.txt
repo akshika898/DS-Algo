@@ -49,13 +49,13 @@ while (!q.isEmpty())
         for(int i=0;i<s;i++)
         {
            Node curr = q.remove();
-            if (i == 0) 
-           System.out.print(curr.key + " ");
+           if (i == 0) 
+             System.out.print(curr.key + " ");
 
-         if (curr.left != null) 
-	q.add(curr.left);
-         if (curr.right != null)
-               q.add(curr.right);
+           if (curr.left != null) 
+	      q.add(curr.left);
+           if (curr.right != null)
+             q.add(curr.right);
         }
     }
 }

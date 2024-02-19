@@ -35,13 +35,13 @@ public void BottomView()
 	   } 
 
               if (temp.right != null) 
-	  { 
+	    { 
 	     temp.right.hd = hd+1; 
-                    queue.add(temp.right); 
-	  } 
-            } 
+             queue.add(temp.right); 
+	    } 
+      } 
  
 	for (Map.Entry<Integer, Integer> entry : m.entrySet())
-                         System.out.print(entry.getValue()+ " ");
+             System.out.print(entry.getValue()+ " ");
 
 }

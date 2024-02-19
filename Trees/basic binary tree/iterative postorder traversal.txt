@@ -27,4 +27,30 @@ static Stack<node> s1, s2;
 
 
 
+using 1 stack
 
+static void postOrderTrav(Node cur) {
+
+        if (cur == null) return postOrder;
+
+        Stack < Node > st = new Stack < > ();
+        while (cur != null || !st.isEmpty()) {
+            if (cur != null) {
+                st.push(cur);
+                cur = cur.left;
+            } else {
+                Node temp = st.peek().right;
+                if (temp == null) {
+                    temp = st.pop();
+                    System.out.print(temp.data + " "); 
+                    while (!st.isEmpty() && temp == st.peek().right) {
+                        temp = st.pop();
+                        System.out.print(temp.data + " ");
+                    }
+                } else cur = temp;
+            }
+        }
+        return postOrder;
+
+
+    }

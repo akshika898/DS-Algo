@@ -1,5 +1,4 @@
- static void sumOfLongRootToLeafPath(Node root, int sum, 
-                                         int len) 
+ static void sumOfLongRootToLeafPath(Node root, int sum,  int len) 
     { 
         if (root == null) { 
 

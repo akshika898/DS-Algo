@@ -5,11 +5,10 @@
               return; 
         
         int prevSum = (hM.get(hD) == null) ? 0 : hM.get(hD); 
-        hM.put(hD, prevSum + root.key()); 
+        hM.put(hD, prevSum + root.val); 
    
-        VerticalSumUtil(root.left(), hD - 1, hM);
-   
-        VerticalSumUtil(root.right(), hD + 1, hM); 
+        VerticalSumUtil(root.left, hD - 1, hM);
+        VerticalSumUtil(root.right, hD + 1, hM); 
     } 
 
 

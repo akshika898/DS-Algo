@@ -12,9 +12,6 @@ ArrayList<Integer> noSibling(Node node)
 }
 
 
-
-
-
 ArrayList<Integer> noSib(Node node)
   {
      if(node.right!=null&&node.left!=null)
