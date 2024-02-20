@@ -1,14 +1,14 @@
 int get(Node node, int data, int level)
  {
      if(node==null)
-     return 0;
-     int l;
+     	return 0;
+
      if(node.data==data)
-     return level;
+     	return level;
      
-    l=get(node.left,data,level+1);
+    int l = get(node.left, data, level+1);
     if(l!=0)
-    return l;
-    return get(node.right,data,level+1);
+    	return l;
+    return get(node.right, data, level+1);
 }
 

@@ -7,8 +7,9 @@ class Result
   {
     Index p=new Index();
     p.index=n-1;
-return util(in,post,0,n-1,p);
+    return util(in,post,0,n-1,p);
   }
+  
     static Node util(int in[], int post[], int start,int end,Index p)
   {
     if(start>end)

@@ -17,7 +17,7 @@ static Node findSuccessor(Node root, int key)
     }
 
   else
-       return findPredecessor(root.right, prec, key);
+       return findSuccessor(root.right, prec, key);
      return succ;
 }
 

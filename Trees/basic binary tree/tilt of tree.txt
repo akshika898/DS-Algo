@@ -47,3 +47,20 @@ int traverse(Node root)
 
 
 
+
+static int traverse(Node root, T t) 
+{ 
+    if (root == null) 
+        return 0; 
+ 
+    int left = traverse(root.left, t); 
+    int right = traverse(root.right, t); 
+ 
+    // Add current tilt to overall 
+    t.tilt += Math.abs(left - right); 
+ 
+    // Returns sum of nodes under current tree 
+    return left + right + root.val; 
+} 
+ 
+

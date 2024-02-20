@@ -5,17 +5,17 @@ longest path between 2 nodes
 int diameter;
 public int getDiameter(Node node)
 {
-if(node===null)
-return 0;
-if(node.left==null &&node.right==null)
-return 1;
+	if(node===null)
+		return 0;
+	if(node.left==null &&node.right==null)
+		return 1;
 
-int lh=getDiameter(node.left);
-int rh=getDiameter(node.right);
+	int lh=getDiameter(node.left);
+	int rh=getDiameter(node.right);
 
-diameter=Math.max(diameter,lh+rh+1);
+	diameter=Math.max(diameter, lh+rh+1);
 
-return Math.max(lh,rh)+1;
+	return Math.max(lh,rh)+1;
 }
 
 

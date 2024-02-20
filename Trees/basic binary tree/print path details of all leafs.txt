@@ -6,6 +6,9 @@ int index=0;
  int arr[]=new int[100];
   details(root,arr,index);
   }
+  
+  
+  
 static void print(int a[],int index)
 {
   for(int i=0;i<=index;i++)
@@ -13,6 +16,9 @@ static void print(int a[],int index)
   System.out.println(index);
   
 }
+
+
+
 static void details(Node root,int arr[],int index)
 {
   if(root ==null)
@@ -22,5 +28,5 @@ static void details(Node root,int arr[],int index)
     print(arr,index);
   
   details(root.leftChild,arr,index+1);
-    details(root.rightChild,arr,index+1);
+  details(root.rightChild,arr,index+1);
 }
