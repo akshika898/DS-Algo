@@ -33,7 +33,7 @@ void makeZero(int a[ROWS][COLS], int r, int c)
     int isCol = 0;
     for (int i = 0; i < r; i++) {
       if (a[i][0] == 0) {
-        isCol = 1;
+        isCol = 0;
       }
 
       for (int j = 1; j < c; j++) {
@@ -58,7 +58,7 @@ void makeZero(int a[ROWS][COLS], int r, int c)
       }
     }
 
-    if (isCol==1) {
+    if (isCol==0) {
       for (int i = 0; i < r; i++) {
         a[i][0] = 0;
       }

@@ -15,7 +15,9 @@ one element.
             if(nums[i]>nums[i+1])
             {
                 if(i>0)
-                {
+                { 
+                
+                    // we need to replace with smallest el, if i-1 is small replace i, if i+1 is small replace i+!
                     if(nums[i-1]<=nums[i+1])
                         nums[i] = nums[i-1];
                     else 
@@ -31,4 +33,5 @@ one element.
     
     
     
-  3 4 2 3
+  3 4 1 3
+  or 2 2 1

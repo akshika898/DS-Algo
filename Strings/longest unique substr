@@ -41,6 +41,7 @@ public static int longestUniqueSubsttr(String str) {
     
     
     optimised version
+    
     static int longestUniqueSubsttr(String str) {
         int n = str.length();
         int res = 0;

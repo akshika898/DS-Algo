@@ -7,7 +7,7 @@ Sample Output
 Explanation
 
 |lengths| = 6, lengths = {5, 4, 4, 2, 2, 8}
-Cut Op 1:cut length for this cut operation is 2. 
+Cut Op 1:cut length for this cut operation is 2.
                  After cutting lengths1 = {3, 2, 2, 0, 0, 6} and we print 6  on a new line.
 Cut Op 2:cut length for this cut operation is 2. 
                  After cutting lengths2 = {1, 0, 0, 0, 0, 4} and we print 4 on a new line.

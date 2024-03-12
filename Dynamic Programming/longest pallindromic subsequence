@@ -1,1 +1,4 @@
 reverse string and same code as longest common subsequence
+
+
+if question is min insertion to make a string pallindrome then anns - n - length of longest pallindromic subsequence

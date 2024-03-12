@@ -26,6 +26,43 @@
 
 -------------------------------------------------------------
 
+
+static nodeInfo largestBST(Node root)
+    {
+ 
+
+        if (root == null) {
+            return new nodeInfo(0, Integer.MIN_VALUE, Integer.MAX_VALUE, true);
+        }
+
+
+        nodeInfo left = largestBST(root.left);
+        nodeInfo right = largestBST(root.right);
+ 
+        nodeInfo returnInfo = new nodeInfo();
+ 
+        returnInfo.min = Math.min(left.min, root.data);
+        returnInfo.max = Math.max(right.max, root.data);
+        returnInfo.isBST = left.isBST && right.isBST
+                           && root.data > left.max
+                           && root.data < right.min;
+ 
+
+        if (returnInfo.isBST)
+ 
+            returnInfo.size = left.size + right.size + 1;
+        else
+            returnInfo.size
+                = Math.max(left.size, right.size);
+ 
+        return returnInfo;
+    }
+    
+    
+    
+    
+    
+
 	static int MAX = Integer.MAX_VALUE;
 	static int MIN = Integer.MIN_VALUE;
 
@@ -45,24 +82,4 @@
 			this.isBST = isBST;
 		}
 	}
-
-	static Info largestBST(Node root)
-	{
-		if (root == null) {
-			return new Info(0, Integer.MIN_VALUE, Integer.MAX_VALUE, true);
-		}
-		// We will here do the postorder traversal as we want our left and right subtrees to be computed first.
-
-		Info left = largestBST(root.left, ans);
-		Info right = largestBST(root.right, ans);
-
-		Info current;
-                current.size = left.size + right.siz +1;
-		current.min = Math.min(left.min, root.data);
-		current.max = Math.max(right.max, root.data);
-		current.isBST = left.isBST && right.isBST && root.data > left.max && root.data < right.min;
-
-		if (current.isBST) {
-                    ans = Math.max(ans, current.size)
-                }
 
