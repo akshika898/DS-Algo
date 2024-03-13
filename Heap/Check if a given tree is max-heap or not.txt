@@ -25,15 +25,13 @@ static int heapify(int arr[],int n,int i)
 --------------------------------
 
 if (root == null)
-return true;
+	return true;
 if (i >= n) 
-return false;
-
-if ((root.left != null && root.left.data <= root.data) ||
-(root.right != null && root.right.data <= root.data)) {
 	return false;
-		}
 
-return isHeap(root.left, 2*i + 1, n) &&
-isHeap(root.right, 2*i + 2, n);
-	}
+if ((root.left != null && root.left.data <= root.data) || (root.right != null && root.right.data <= root.data)) {
+	return false;
+}
+
+return isHeap(root.left, 2*i + 1, n) && isHeap(root.right, 2*i + 2, n);
+

@@ -40,3 +40,8 @@ static String infixToPostfix(CQStack s, String exp)
     return result;
   
 }
+
+
+
+if high prercedence, keep pushing, if ch prec is less keep popping 
+if bracket pop until opening is found

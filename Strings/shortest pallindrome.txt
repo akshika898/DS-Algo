@@ -17,7 +17,7 @@ Output: "dcbabcd"
 
 
 
-
+find longest pallindromic substr from start and add remaing chars to front
 
 class Solution {
     public String shortestPalindrome(String s) {

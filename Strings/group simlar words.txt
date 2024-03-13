@@ -1,0 +1,50 @@
+
+	static String getKey(String str)
+	{
+		boolean[] visited = new boolean[26];
+		Arrays.fill(visited, false);
+	
+		for (int j = 0; j < str.length(); j++)
+			visited[str.charAt(j) - 'a'] = true ;
+		String key = "";
+		for (int j=0; j < 26; j++)
+			if (visited[j])
+				key = key + (char)('a'+j);
+		return key;
+	}
+	
+
+	static void wordsWithSameCharSet(String words[], int n)
+	{
+		HashMap<String, ArrayList<Integer>> Hash = new HashMap<>();
+	
+		for (int i=0; i<n; i++)
+		{
+			String key = getKey(words[i]);
+			
+			if(Hash.containsKey(key))
+			{
+				ArrayList<Integer> get_al = Hash.get(key);
+				get_al.add(i);
+				Hash.put(key, get_al);
+			}
+			
+			else
+			{
+				ArrayList<Integer> new_al = new ArrayList<>();
+				new_al.add(i);
+				Hash.put(key, new_al);
+			}
+		}
+	
+
+		for (Entry<String, ArrayList<Integer>> it : Hash.entrySet())
+		{
+			ArrayList<Integer> get =it.getValue();
+			for (Integer v:get)
+				System.out.print( words[v] + ", ");
+			System.out.println();
+		}
+	}
+
+
