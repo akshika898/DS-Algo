@@ -30,5 +30,5 @@ Node reverse(Node head)
 
 
 
-will become list in desc order
+final list will become list in desc order
 

@@ -23,7 +23,7 @@ void swapNodes(int x, int y)
     prevy.next=currx;
   else
     head=currx;
-currx.prev=prevy;
+  currx.prev=prevy;
   curry.prev=prevx;
   LinkList temp=curry.next;
   curry.next=currx.next;

@@ -1,8 +1,7 @@
 int detectAndRemoveLoop(Node node)
     {
         Node slow = node, fast = node;
-        while (slow != null && fast != null
-               && fast.next != null) {
+        while (slow != null && fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
             if (slow == fast) {
@@ -40,3 +39,22 @@ int findStart(Node head,Node fast)
   } 
   return temp;
 }
+
+
+
+remove logic
+fast = 2*slow
+a - no loop distance
+b - time to reach to slow
+c - cycle to reach slow
+
+
+a + (x*c) + b = 2 * (a +(y*c) + b)
+
+a + xc + b = 2a + 2yc + 2b
+xc - 2yc = a + b
+c(x-2y) = a + b
+kc = a + b
+
+
+mean if i do a + b cycle is complete, so b is already travelled upto slow, i need to run when a and slow meets, i can remove loop

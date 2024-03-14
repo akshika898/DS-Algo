@@ -6,7 +6,7 @@ public Node swapPairs(Node head) {
         while(true)
         {
             q=p.next;
-           temp=q.next;
+            temp=q.next;
             q.next=p;
             if(temp==null || temp.next==null)
             {

@@ -25,3 +25,5 @@ Node mergeKLists(Node[] lists) {
         return l.next;
     }
 }
+
+//check gfg for code

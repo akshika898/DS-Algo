@@ -13,7 +13,7 @@ static Node reverseK(Node head,int k)
         i++;
     }
     if(next!=null)
-    head.next=reverseK(next,k);
+    	head.next=reverseK(next,k);
     return prev;
 }
 

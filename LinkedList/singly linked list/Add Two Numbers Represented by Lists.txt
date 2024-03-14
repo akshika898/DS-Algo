@@ -8,12 +8,12 @@ static Node addList(Node head1, Node head2) {
       int b_val=(b!=null)?b.data:0;
       int sum=a_val+b_val+carry;
       carry=sum/10;
-    curr.next=new Node(sum%10);
-    curr=curr.next;
-    if(a!=null)
-      a=a.next;
-    if(b!=null)
-      b=b.next;
+      curr.next=new Node(sum%10);
+      curr=curr.next;
+      if(a!=null)
+        a=a.next;
+      if(b!=null)
+        b=b.next;
   }
   if(carry>0)
     curr.next=new Node(carry);

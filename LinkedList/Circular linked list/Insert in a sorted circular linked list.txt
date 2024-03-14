@@ -8,8 +8,8 @@ LinkList node=new LinkList(data);
     node.next=head;
     return head;
   }
+
   LinkList temp=head;
-  
   
   //first node
   if(data < head.data)
@@ -21,13 +21,12 @@ LinkList node=new LinkList(data);
     head=node;
     return head;
   }
+ 
   temp=head.next;
   LinkList prev=head;
   // in between 
-  while(temp!=head)
+  while(temp!=head && data < temp.data)
   {
-    if(data>temp.data)
-      break;
     prev=temp;
     temp=temp.next;
   }
