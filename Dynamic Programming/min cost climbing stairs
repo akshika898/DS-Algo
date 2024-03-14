@@ -38,3 +38,24 @@ Return the minimum cost to reach the top of the floor.
         dp[n] = countWays(n - 1, dp) + countWays(n - 2, dp);
         return dp[n];
     }
+    
+    
+    
+    
+    
+    ----------------------------------------------------------------------------
+    
+     static int minCostClimbingStairs(int[] cost, int N) {
+        int dp[] = new int[N];
+        Arrays.fill(dp, -1);
+        return Math.min(minCost(cost, 0, dp), minCost(cost, 1, dp));
+    }
+
+    static int minCost(int[] cost, int i, int[] dp) {
+        if (i >= cost.length) return 0;
+        if (dp[i] != -1) {
+            return dp[i];
+        }
+        dp[i] = Math.min(minCost(cost, i + 1, dp), minCost(cost, i + 2, dp)) + cost[i];
+        return dp[i];
+    }

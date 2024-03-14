@@ -16,7 +16,7 @@ public String largestNum(int[] nums) {
         for(int i=0;i<nums.length;i++)
             res[i]=Integer.toString(nums[i]);
         
-        Arrays.sort(res,new Comparator<String>(){
+        Arrays.sort(res, new Comparator<String>(){
             public int compare(String a,String b)
             {
                 String o1=a+b;

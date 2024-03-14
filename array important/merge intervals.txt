@@ -3,15 +3,59 @@ Output: [[1,6],[8,10],[15,18]]
 
 0(nlogn)
 
-public int[][] merge(int[][] intervals) {
-        Arrays.sort(intervals,(a,b) ->Integer.compare(a[0],b[0]));
-        LinkedList<int[]> list=new LinkedList<>();
-        for(int[] interval :intervals)
-        {
-            if(list.isEmpty() || list.getLast()[1] < interval[0])
-                list.add(interval);
-            else
-                list.getLast()[1]=Math.max(list.getLast()[1],interval[1]);
-        }
-        return list.toArray(new int[list.size()][]);
-    }
+
+class Interval {
+	int start, end;
+
+	Interval(int start, int end)
+	{
+		this.start = start;
+		this.end = end;
+	}
+}
+
+public class MergeOverlappingIntervals {
+
+	public static void mergeIntervals(Interval arr[])
+	{
+		// Sort Intervals in increasing order of start time
+		Arrays.sort(arr, new Comparator<Interval>() {
+			public int compare(Interval i1, Interval i2)
+			{
+				return i1.start - i2.start; //if neg does not swap
+			}
+		});
+
+		int index = 0; 
+	
+		for (int i = 1; i < arr.length; i++) {
+			
+			if (arr[index].end >= arr[i].start) {
+
+				arr[index].end = Math.max(arr[index].end, arr[i].end);
+			}
+			else {
+				index++;
+				arr[index] = arr[i];
+			}
+		}
+
+
+		for (int i = 0; i <= index; i++) {
+			System.out.print("[" + arr[i].start + "," + arr[i].end + "]");
+		}
+	}
+
+
+	public static void main(String args[])
+	{
+		Interval arr[] = new Interval[4];
+		arr[0] = new Interval(6, 8);
+		arr[1] = new Interval(1, 9);
+		arr[2] = new Interval(2, 4);
+		arr[3] = new Interval(4, 7);
+		mergeIntervals(arr);
+	}
+}
+
+

@@ -27,3 +27,22 @@ o(n2)
         }
         return jumps[n - 1];
     }
+    
+    
+    
+    better
+    
+    
+    
+    int minJumps(vector<int> array){
+	int n = array.size();
+	int jumps = 0, currJumpEnd = 0, farthest = 0;
+	for (int i = 0; i <= n; i ++){
+		farthest = max(farthest, array[i] + i);
+		if (i == currJumpEnd){
+			jumps++;
+			currJumpEnd = farthest;
+		}
+	}
+	return jumps;
+}

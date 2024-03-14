@@ -18,7 +18,7 @@ static int getInvCount(int n)
 
 o(nlogn) --better for interview merge sort
 
-
+https://www.youtube.com/watch?v=AseUmwVNaoY&ab_channel=takeUforward
     private static int mergeAndCount(int[] arr, int l, int m, int r)
     {
  
@@ -31,7 +31,7 @@ o(nlogn) --better for interview merge sort
             if (left[i] <= right[j])
                 arr[k++] = left[i++];
             else {
-                arr[k++] = right[j++];
+                arr[k++] = right[j 
                 count += (m + 1) - (l + i);
             }
         }
@@ -51,16 +51,10 @@ o(nlogn) --better for interview merge sort
         if (l < r) {
             int m = (l + r) / 2;
  
-            // Total inversion count = left subarray count
-            // + right subarray count + merge count
+            // Total inversion count = left subarray count + right subarray count + merge count
  
-            // Left subarray count
             count += mergeSortAndCount(arr, l, m);
- 
-            // Right subarray count
             count += mergeSortAndCount(arr, m + 1, r);
- 
-            // Merge count
             count += mergeAndCount(arr, l, m, r);
         }
  
@@ -68,5 +62,5 @@ o(nlogn) --better for interview merge sort
     }
  
  
-      mergeSortAndCount(arr, 0, arr.length - 1));
+      mergeSortAndCount(arr, 0, arr.length - 1);
 

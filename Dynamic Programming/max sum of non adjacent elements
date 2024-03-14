@@ -42,6 +42,6 @@ int findMaxSum(int arr[], int n) {
     
 Also house robber question is same  just that instead of single lin max sum in circle so first and last elements cannot be considered together as adjacent are not allowed
  
- approach same code - just first we ignore first element and write code for arr[1] ---- arr[n]
+ approach same code - just first we ignore first element and write code for  arr[1] ---- arr[n]
  then ignore last emlent and write code for arr[0] ----- arr[n-1]
- then find max of both
+ create 2 arrays then then find max of both

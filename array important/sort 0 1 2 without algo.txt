@@ -27,6 +27,9 @@ static void sortArr(int arr[], int n)
 
 or
 
+
+0 00000000000000 low 1111111111111111111 mid 0 0  1 2 0 1 high 22222222222222222222222222222 n-1
+
 static void sort012(int a[], int arr_size) 
     { 
         int lo = 0; 
