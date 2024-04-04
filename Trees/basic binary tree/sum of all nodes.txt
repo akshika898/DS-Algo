@@ -19,7 +19,7 @@ public class Main{
     }
   }
   
-    static Node buildTree(int t[], int n)
+static Node buildTree(int t[], int n)
   {
     Node node = null;
     node = insert(t, node, 0, n);

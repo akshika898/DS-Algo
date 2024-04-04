@@ -1,3 +1,9 @@
+input - [god, limesss, miles, good, dog, smile] 
+output - god, good, dog
+         smile, miles, limesss
+
+
+
 
 	static String getKey(String str)
 	{

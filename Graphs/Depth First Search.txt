@@ -9,7 +9,7 @@ class Solution {
         }
         return ans;
     }
-    
+
     public void dfs(ArrayList<ArrayList<Integer>> adj, ArrayList<Integer> ans, Map<Integer, Boolean> visited, int node) {
         ans.add(node);
         visited.put(node, true);

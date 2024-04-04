@@ -1,7 +1,6 @@
  static void sumOfLongRootToLeafPath(Node root, int sum,  int len) 
     { 
         if (root == null) { 
-
             if (maxLen < len) { 
                 maxLen = len; 
                 maxSum = sum; 
@@ -9,11 +8,9 @@
             else if (maxLen == len && maxSum < sum) 
                 maxSum = sum; 
             return; 
+         }
             
-         sumOfLongRootToLeafPath(root.left, sum + root.data, 
-                                len + 1); 
-          
-        sumOfLongRootToLeafPath(root.right, sum + root.data, 
-                                len + 1); 
+         sumOfLongRootToLeafPath(root.left, sum + root.data, len + 1); 
+         sumOfLongRootToLeafPath(root.right, sum + root.data, len + 1); 
      } 
           

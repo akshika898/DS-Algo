@@ -27,7 +27,7 @@ char arr[]=new char[s.length()];
 int i=0;
 for(int j=0;j<s.length();j++)
    {
-    char current=s.charAt(i);
+    char current=s.charAt(j);
     if(i>0 &&arr[i-1]==current)
         i--;
     else
