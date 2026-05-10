@@ -16,6 +16,7 @@
 
 0(n)
 
+// sum + 0 = sum, if at any index we get sum already in hashset menas that sum part was 0.
  static Boolean subArrayExists(int arr[]) 
     { 
         Set<Integer> hs = new HashSet<Integer>();  

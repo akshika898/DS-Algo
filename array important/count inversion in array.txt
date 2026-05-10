@@ -32,7 +32,7 @@ https://www.youtube.com/watch?v=AseUmwVNaoY&ab_channel=takeUforward
                 arr[k++] = left[i++];
             else {
                 arr[k++] = right[j 
-                count += (m + 1) - (l + i);
+                count += m - l + 1;
             }
         }
         while (i < left.length)

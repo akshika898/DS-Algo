@@ -1,5 +1,5 @@
-      nextgreater(a,n);
-  static void nextgreater(int a[],int n){
+      prevgreater(a,n);
+  static void prevgreater(int a[],int n){
     int res[]=new int[n];
     for(int i=0;i<n;i++)
       res[i]=-1;

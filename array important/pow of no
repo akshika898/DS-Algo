@@ -9,3 +9,4 @@ static int power(int x, int y)
     else
         return x * temp * temp;
 }
+

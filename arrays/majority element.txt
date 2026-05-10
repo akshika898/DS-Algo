@@ -19,17 +19,6 @@ public int majority(int[] a) {
         return -1;
     }
 
-
-2==> 0(nlogn)
-
-class Solution {
-    public int majorityElement(int[] nums) {
-        Arrays.sort(nums);
-        return nums[nums.length/2];
-    }
-}
-
-
 or moores voting algo
 
 	void printMajority(int a[], int size)

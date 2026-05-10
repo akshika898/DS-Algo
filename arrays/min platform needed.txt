@@ -13,7 +13,6 @@ Explanation: Only one platform is needed.
 
 
 
-
 	static int findPlatform(int arr[], int dep[], int n)
 	{
 		// Sort arrival and departure arrays

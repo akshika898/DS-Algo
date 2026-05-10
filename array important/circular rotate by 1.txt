@@ -1,5 +1,6 @@
 inp---1 2 3 4 5
 out---5 1 2 3 4
+
 static void rotate()
     {
        int x = arr[arr.length-1], i;

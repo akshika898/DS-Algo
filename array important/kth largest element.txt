@@ -9,46 +9,20 @@ method1: 0(nlogn)
 
  method 2: heap
  Time Complexity: O(N + (N – K) * log(K) )
- static void kth_Largest_MaxHeap(int[] arr, int k) {
 
-        PriorityQueue<Integer>pq= new PriorityQueue<>((a,b)->b-a); or PriorityQueue<Integer>pq= new PriorityQueue<>(Collections.reverseOrder());
+
+ // Min heap to store K largest elements
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
         
-
-        for (int i = 0; i < arr.length; i++) {
-            pq.add(arr[i])  ;
+        // Iterate through the array elements
+        for (int val : arr) {
+          
+            // Add current element to the min heap
+            pq.add(val);
+            // If heap exceeds size K, remove smallest element
+            if (pq.size() > K)
+                pq.poll();
         }
 
-        for(int i=0;i<k-1;i++){
-            pq.remove();
-        }
-
-        System.out.println(pq.peek())  ;
-    }
-
-    static void kth_Smallest_MinHeap(int[] arr, int k) {
-
-        PriorityQueue<Integer>pq= new PriorityQueue<>();
-
-        for (int i = 0; i < arr.length; i++) {
-            pq.add(arr[i])  ;
-        }
-
-        for(int i=0;i<k-1;i++){
-            pq.remove();
-        }
-
-        System.out.println(pq.peek())  ;
-    }
- 
-public static void main(String args[]) {
-
-    int arr[] = {1, 2, 6, 4, 5, 3}  ;
-
-    kth_Largest_MaxHeap(arr, 3)  ;
-    kth_Smallest_MinHeap(arr, 3)  ;
-}
-
-
-
-
-
+        // Top of the heap is the K'th largest element
+        return pq.peek();

@@ -1,10 +1,16 @@
-public int removeDuplicates(int[] a) {
-        int i=0;
-        for(int j=1;j<a.length;)
-        {
-            if(a[i]!=a[j])
-                a[++i]=a[j];
-                j++;
+
+static int removeDuplicates(int[] arr) {
+        int n = arr.length;
+        if (n <= 1)
+            return n;
+		
+      	// Start from the second element
+        int idx = 1; 
+      
+        for (int i = 1; i < n; i++) {
+            if (arr[i] != arr[i - 1]) {
+                arr[idx++] = arr[i];
+            }
         }
-        return i+1;
-}
+        return idx;
+    }

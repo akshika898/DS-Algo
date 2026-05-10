@@ -2,14 +2,6 @@ public class RatMaze {
 
     static int N;
 
-    void printSolution(int sol[][])
-    {
-	for (int i = 0; i < N; i++) {
-	  for (int j = 0; j < N; j++)
-	    System.out.print(" " + sol[i][j] + " ");
-	  System.out.println();
-	}
-    }
 
     boolean isSafe(int maze[][], int x, int y){
 	// if (x, y outside maze) return false
@@ -48,6 +40,15 @@ public class RatMaze {
 
 		return false;
 	}
+
+	void printSolution(int sol[][])
+    {
+	for (int i = 0; i < N; i++) {
+	  for (int j = 0; j < N; j++)
+	    System.out.print(" " + sol[i][j] + " ");
+	  System.out.println();
+	}
+    }
 
 
 	public static void main(String args[])

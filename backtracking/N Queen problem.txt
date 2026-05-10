@@ -1,15 +1,6 @@
 public class NQueenProblem {
   final int N = 4;
 
-  void printSolution(int board[][])
-    {
-	for (int i = 0; i < N; i++) {
-	  for (int j = 0; j < N; j++)
-	    System.out.print(" " + board[i][j] + " ");
-	  System.out.println();
-	}
-  }
-
   boolean isSafe(int board[][], int row, int col)
     {
 	int i, j;
@@ -54,6 +45,19 @@ NOTE : no need to check up and down column because once a queen is placed we pro
      /* If the queen can not be placed in any row in this col, then return false */
      return false;
     }
+
+
+
+
+       void printSolution(int board[][])
+      {
+	for (int i = 0; i < N; i++) {
+	  for (int j = 0; j < N; j++)
+	    System.out.print(" " + board[i][j] + " ");
+	  System.out.println();
+	}
+     }
+
 
 	boolean solveNQ()
 	{

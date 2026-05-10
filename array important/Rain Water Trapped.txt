@@ -44,35 +44,37 @@ static int findWater(int n)
 
 or
 
- public static int maxWater(int arr[], int n)
-    {
-        int size = n - 1;
-        int prev = arr[0];
-        int prev_index = 0, water = 0, temp = 0;
-        for (int i = 1; i <= size; i++) {
+function maxWater(arr) {
+    let left = 1;
+    let right = arr.length - 2;
+    let lMax = arr[left - 1];
+    let rMax = arr[right + 1];
 
-            if (arr[i] >= prev) {
-                prev = arr[i];
-                prev_index = i;
-                temp = 0;
-            }
-            else {
-                water += prev - arr[i];
-                temp += prev - arr[i];
-            }
+    let res = 0;
+    while (left <= right) {
+      
+        // If rMax is smaller, we can decide the water for arr[right]
+        if (rMax <= lMax) {
+          
+            // Add the water for arr[right]
+            res += Math.max(0, rMax - arr[right]);
+
+            // Update right max
+            rMax = Math.max(rMax, arr[right]);
+
+            // Update right pointer as we have decided 
+            // the amount of water for this
+            right -= 1;
+        } else { 
+            // Add the water for arr[left]
+            res += Math.max(0, lMax - arr[left]);
+
+            // Update left max
+            lMax = Math.max(lMax, arr[left]);
+
+            // Update left pointer as we have decided water for this
+            left += 1;
         }
-        if (prev_index < size) {
- 
-            water -= temp;
-            prev = arr[size];
-            for (int i = size; i >= prev_index; i--) {
-                if (arr[i] >= prev) {
-                    prev = arr[i];
-                }
-                else {
-                    water += prev - arr[i];
-                }
-            }
-        }
-        return water;
     }
+    return res;
+}

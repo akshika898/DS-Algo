@@ -4,16 +4,18 @@ out--1 2 3 4 5
 public Node remove(Node head, int val) {
         if(head==null)
             return null;
+        // starting elements match val
         while(head!=null &&head.val==val )
             head=head.next;
-     Node temp=head,prev=null;
+
+       Node temp=head, prev=null;
 
         while(temp!=null){
             if(temp.val==val)
-             prev.next=temp.next;   
+                 prev.next=temp.next;   
             else
-            prev=temp;
+                 prev=temp;
             temp=temp.next;
-  }
+         }
         return head;
     }
